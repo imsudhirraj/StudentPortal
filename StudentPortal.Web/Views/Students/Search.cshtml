@@ -10,11 +10,14 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Email</th>
             <th>Phone</th>
+            <th>Admission</th>
+            <th>Gender</th>
+            <th>Fees</th>
+            <th>Email</th>
             <form method="get" asp-controller="Students" asp-action="Search">
             <th>
-                <input type="search" class="form-control" name="searchTerm" placeholder="Search Student with their name" aria-label="Search" />
+                <input type="search" class="form-control" name="searchTerm" placeholder="Search Student" aria-label="Search" />
             </th>
             <th>
                 <input class="btn btn-secondary" type="submit" value="Search"></input>
@@ -27,8 +30,11 @@
         {
             <tr>
                 <td>@student.Name</td>
-                <td>@student.Email</td>
                 <td>@student.Phone</td>
+                <td>@student.Admission</td>
+                <td>@student.Gender</td>
+                <td>@student.Fees</td>
+                <td>@student.Email</td>
                 <td>
                     <a class="btn btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
                 </td>

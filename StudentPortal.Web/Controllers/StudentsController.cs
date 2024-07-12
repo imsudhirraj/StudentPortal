@@ -25,8 +25,11 @@ namespace StudentPortal.Web.Controllers
             var student = new Student
             {
                 Name = viewModel.Name,
-                Email = viewModel.Email,
                 Phone = viewModel.Phone,
+                Admission = viewModel.Admission,
+                Gender = viewModel.Gender,
+                Fees = viewModel.Fees,
+                Email = viewModel.Email,
                 Subscribed = viewModel.Subscribed,
             };
             await dbContext.Students.AddAsync(student);
@@ -53,8 +56,11 @@ namespace StudentPortal.Web.Controllers
             if (student is not null)
             {
                 student.Name = viewModel.Name;
-                student.Email = viewModel.Email;
                 student.Phone = viewModel.Phone;
+                student.Admission = viewModel.Admission;
+                student.Gender = viewModel.Gender;
+                student.Fees = viewModel.Fees;
+                student.Email = viewModel.Email;
                 student.Subscribed = viewModel.Subscribed;
 
                 await dbContext.SaveChangesAsync();
@@ -100,7 +106,7 @@ namespace StudentPortal.Web.Controllers
 
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                students = students.Where(name => name.Name.Contains(searchTerm));
+                students = students.Where(name => name.Name.Contains(searchTerm) || name.Email.Contains(searchTerm) || name.Phone.Contains(searchTerm) || name.Gender.Contains(searchTerm));
             }
 
             await dbContext.SaveChangesAsync();

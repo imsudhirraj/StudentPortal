@@ -12,7 +12,7 @@ using StudentPortal.Web.Data;
 namespace StudentPortal.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240709050242_Initial Migration")]
+    [Migration("20240712073246_Initial Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -31,7 +31,18 @@ namespace StudentPortal.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("Admission")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Fees")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
